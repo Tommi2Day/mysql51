@@ -1,6 +1,6 @@
 # mysql51
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/tommi2day/mysql4.svg)](https://hub.docker.com/r/tommi2day/mysql51/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tommi2day/mysql51.svg)](https://hub.docker.com/r/tommi2day/mysql51/)
 
 ## A Mysql5.1 installation running on Docker
 In 2024 when Mysql 8.3 ist current, a MySQL5.1 environment is still needed as requirement from mature programs 
@@ -14,9 +14,9 @@ docker build -t tommi2day/mysql51 .
 # mysql  
 EXPOSE 3306
 ```
-### Volumes
+### expected share
 ```sh
-VOLUME /db # mysql datadir
+/db # mysql datadir
 ```
 
 ### Environment variables used
@@ -34,12 +34,12 @@ for the datafiles when launching a new container, e.g:
 docker run --name mysql51 \
 --add-host="mysql51:127.0.0.1" \
 -e MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD \ 
--v /volume1/docker/mysql:/db \ 
+-v /docker/mysql51-data:/db \ 
 -p 33306:3306 \
 tommi2day/mysql51
 ```
 
-### connect
+### Connect to mysql
 ```sh
 mysql -h localhost -P 33306 -u root --password=$MYSQL_ROOT_PASSWORD mysql
 ```
