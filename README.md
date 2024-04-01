@@ -7,6 +7,8 @@ In 2024 when Mysql 8.3 ist current, a MySQL5.1 environment is still needed as re
 
 ### build
 ```sh
+git clone https://github.com/Tommi2Day/mysql51.git
+cd mysql51
 docker build -t tommi2day/mysql51 .
 ```
 ### exposed Ports
@@ -14,9 +16,9 @@ docker build -t tommi2day/mysql51 .
 # mysql  
 EXPOSE 3306
 ```
-### expected share
-```sh
-/db # mysql datadir
+### expected volume mount
+```
+-v mysqldata:/db # mysql datadir
 ```
 
 ### Environment variables used
